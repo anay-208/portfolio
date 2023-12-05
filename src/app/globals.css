@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
