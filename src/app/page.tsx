@@ -1,5 +1,3 @@
-"use client";
-import Link from "next/link"
 
 import Introduction from "./components/introduction";
 export default function Home() {
