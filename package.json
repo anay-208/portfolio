@@ -12,10 +12,12 @@
     "node": "20.10.0"
   },
   "dependencies": {
+    "@aws-amplify/adapter-nextjs": "^1.0.6",
     "@fortawesome/fontawesome-svg-core": "^6.5.0",
     "@fortawesome/free-brands-svg-icons": "^6.5.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "aws-amplify": "^6.0.6",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
