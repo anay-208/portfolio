@@ -38,7 +38,7 @@ export default function Projects() {
           />
           <div className="rounded-b-md bg-slate-950">
             <h2 className={`font-${project.font} text-center text-2xl`}>{project.title}</h2>
-            <p className="text-center mx-4 my-2 h-24 sm:h-20">{project.description} &nbsp;
+            <p className="text-center mx-4 my-2 h-28 sm:h-20">{project.description} &nbsp;
             <Link className=" text-blue-500 underline" href={project.link + "/about"}>Read More</Link></p>
             <Link href={project.link} className="mx-auto my-3 block rounded bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 w-fit bg-[length:200%_200%] hover:animate-gradient">
               View Site
