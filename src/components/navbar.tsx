@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 export default function Navbar() {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   return (
-    <nav className="fixed font-default tracking-wide w-full">
+    <nav className="fixed font-default tracking-wide w-full z-50">
       <div className="relative z-20 mx-auto max-w-7xl bg-gray-800/25 px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 z-10 flex items-center sm:hidden">
