@@ -27,8 +27,8 @@ export default function Introduction(){
       })();
     }, [])
       return (
-    <div className="container relative flex min-h-screen flex-col items-center justify-center sm:items-start">
-    <div className="sm:ml-24">
+    <div className="container relative flex min-h-screen flex-col items-start justify-center">
+    <div className=" ml-[5%] sm:ml-24">
       <h1 className="relative w-auto text-5xl font-black tracking-wider transition-all after:absolute after:-inset-x-0 after:-bottom-5 after:top-auto  after:h-1 after:bg-emerald-300 after:content-[''] hover:tracking-widest sm:text-7xl ">
         Anay Paraswani
       </h1>
@@ -37,7 +37,7 @@ export default function Introduction(){
       </h2>
       <div className='flex gap-5'>
       <FontAwesomeIcon icon={faGithub} className="mt-10 text-4xl text-white hover:text-emerald-300 transition-all cursor-pointer" onClick={() => window.open("https://github.com/Anay-208/")}/>
-      <FontAwesomeIcon icon={faEnvelope} className="mt-10 text-4xl text-white hover:text-emerald-300 transition-all cursor-pointer" onClick={() => window.open("mailto:smog_snag.0s@icloud.com")}/>
+      <FontAwesomeIcon icon={faEnvelope} className="mt-10 text-4xl text-white hover:text-emerald-300 transition-all cursor-pointer" onClick={() => window.open("mailto:contact@anayparaswani.me")}/>
     </div>
     </div>
 

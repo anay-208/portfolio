@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 import Navbar from "../components/navbar";
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -12,8 +13,10 @@ const inter = Inter({ subsets: ["latin"] } );
 
 
 const oswald = Oswald({ subsets: ["latin"], variable: "--font-default"  });
+const sharlz = localFont({ src: "./hagrid.woff2", variable: "--font-sharlz"})
+const bauhmas93 = localFont({src: "./bauhmas93.woff2", variable: "--font-dkvk"})
 // For variable font
-const fonts = [oswald]
+const fonts = [oswald, sharlz, bauhmas93]
 
 
 
@@ -31,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${fonts.map(font => font.variable)} ${inter.className}`}>
+      <body className={`${fonts.map(font => font.variable).join(' ')} ${inter.className}`}>
         <Navbar />
         {children}
       </body>

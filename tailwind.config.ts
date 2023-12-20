@@ -10,9 +10,12 @@ const config: Config = {
     extend: {
       fontFamily: {
         default: ["var(--font-default)"],
+        sharlz: ["var(--font-sharlz)"],
+        dkvk: ['var(--font-dkvk)'],
       },
       animation: {
         "blink-caret": "blink-caret 1s linear infinite",
+        "gradient": "gradient 5s ease infinite",
       }
     },
   },
