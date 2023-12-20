@@ -1,15 +1,34 @@
-<h1 align="center">Hi 👋, I'm Anay</h1>
-<h3 align="center">A Self Taught, Full Stack Developer from India</h3>
+# My Portfolio
 
-- 🔭 I’m currently working on **sharlz.com**
+Welcome to my portfolio! Feel free to use this as a template for your own portfolio.
 
-- 🌱 I’m currently learning **Penetration testing**
+## Usage
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/anay_208" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="anay_208" height="30" width="40" /></a>
-<a href="https://instagram.com/anay_208_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="anay_208_" height="30" width="40" /></a>
-</p>
+1. Clone this repository:
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> </p>
+    ```bash
+    git clone https://github.com/anay-208/portfolio.git
+    cd your-portfolio
+    ```
+
+2. Customize the content with your own information.
+
+3. Ensure that you comply with the licensing conditions outlined in the [LICENSE](LICENSE) file.
+
+4. If you deploy this portfolio online, make sure to add my name and a link to my website at the bottom of the page(s).
+
+### License
+
+This portfolio is licensed under the MIT License with Additional Conditions - see the [LICENSE](LICENSE) file for details.
+
+## Attribution
+
+If you use this software as a template for your portfolio, you are required to add the following attribution at the bottom of your portfolio pages:
+
+"Original design by Anay Parswani. Visit https://anayparaswani.me/ for more information."
+
+### Contact
+
+For any inquiries or feedback, feel free to [contact me](mailto:admin@anayparaswani.me).
+
+---
