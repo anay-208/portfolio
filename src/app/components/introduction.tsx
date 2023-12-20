@@ -27,7 +27,7 @@ export default function Introduction(){
       })();
     }, [])
       return (
-    <div className="container relative flex min-h-screen flex-col items-start justify-center">
+    <div id='introduction' className="relative flex min-h-screen flex-col items-start justify-center">
     <div className=" ml-[5%] sm:ml-24">
       <h1 className="relative w-auto text-5xl font-black tracking-wider transition-all after:absolute after:-inset-x-0 after:-bottom-5 after:top-auto  after:h-1 after:bg-emerald-300 after:content-[''] hover:tracking-widest sm:text-7xl ">
         Anay Paraswani
