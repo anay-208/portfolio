@@ -11,14 +11,14 @@ export default function Projects() {
         "“Sharlz” is an up-and-coming clothing brand that offers and provides design varieties for Gamers, Cartoon and Anime enthusiasts!",
       link: "https://sharlz.com",
       image: "/sharlz.jpg",
-      font: "sharlz" //Name of the font, its added in layout.tsx and tailwind.config.ts
+      font: "font-sharlz" //Name of the font, its added in layout.tsx and tailwind.config.ts
     },
     {
       title: "Dkvk Jewellers",
       description: "DKVK JEWELLERS was Established in 1995 in AGRA INDIA. ",
       link: "https://dkvkjewellers.com",
       image: "/dkvk.jpg",
-      font: "dkvk"
+      font: "font-dkvk" // Use font-dkvk, and not font-${font} in className. Tailwind can't compile that
     }
   ];
   return (
@@ -37,7 +37,7 @@ export default function Projects() {
             alt={project.title}
           />
           <div className="rounded-b-md bg-slate-950">
-            <h2 className={`font-${project.font} text-center text-2xl`}>{project.title}</h2>
+            <h2 className={`${project.font} text-center text-2xl`}>{project.title}</h2>
             <p className="text-center mx-4 my-2 h-28 sm:h-20">{project.description} &nbsp;
             <Link className=" text-blue-500 underline" href={project.link + "/about"}>Read More</Link></p>
             <Link href={project.link} className="mx-auto my-3 block rounded bg-gradient-to-r from-purple-500 to-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 w-fit bg-[length:200%_200%] hover:animate-gradient">
