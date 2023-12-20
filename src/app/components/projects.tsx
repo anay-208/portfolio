@@ -22,7 +22,7 @@ export default function Projects() {
     }
   ];
   return (
-    <div className="relative flex h-fit min-h-screen w-screen flex-col items-start justify-center bg-slate-900 sm:rounded-sm sm:px-5">
+    <div id="projects" className="relative flex h-fit min-h-screen w-screen flex-col items-start justify-center bg-slate-900 sm:rounded-sm sm:px-5">
       <h1 className="self-center py-10 text-5xl">View my projects</h1>
       <div className="align-center grid w-full grid-cols-1 gap-6 items-center justify-center bg-slate-900 sm:grid-cols-2">
         {" "}
@@ -35,6 +35,7 @@ export default function Projects() {
             width={1280}
             height={720}
             alt={project.title}
+            
           />
           <div className="rounded-b-md bg-slate-950">
             <h2 className={`${project.font} text-center text-2xl`}>{project.title}</h2>
