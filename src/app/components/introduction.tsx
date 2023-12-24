@@ -41,7 +41,7 @@ export default function Introduction(){
     </div>
     </div>
 
-    <p className="text-slate-700 absolute bottom-0 left-1/2 transform -translate-x-1/2">This website is still in development.</p>
+    {/* <p className="text-slate-700 absolute bottom-0 left-1/2 transform -translate-x-1/2">This website is still in development.</p> */}
 
   </div>
       )
