@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "../components/navbar";
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import Footer from "@/components/footer";
 config.autoAddCss = false
 const inter = Inter({ subsets: ["latin"] } );
 
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={`${fonts.map(font => font.variable).join(' ')} ${inter.className}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
