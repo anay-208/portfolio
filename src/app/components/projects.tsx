@@ -2,22 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
+import sharlz from "../images/sharlz.jpg"
+import dkvk from "../images/dkvk.jpg"
 export default function Projects() {
   const projects = [
     {
       title: "Sharlz",
       description:
-        "“Sharlz” is an up-and-coming clothing brand that offers and provides design varieties for Gamers, Cartoon and Anime enthusiasts!",
+        "Sharlz is a revolutionary clothing brand that is set to transform the fashion industry. With a focus on generation Z, Sharlz aims to provide an immersive shopping ",
       link: "https://sharlz.com",
-      image: "/sharlz.jpg",
+      image: sharlz,
       font: "font-sharlz" //Name of the font, its added in layout.tsx and tailwind.config.ts
     },
     {
       title: "Dkvk Jewellers",
       description: "DKVK JEWELLERS was Established in 1995 in AGRA INDIA. ",
       link: "https://dkvkjewellers.com",
-      image: "/dkvk.jpg",
+      image: dkvk,
       font: "font-dkvk" // Use font-dkvk, and not font-${font} in className. Tailwind can't compile that
     }
   ];
@@ -35,7 +36,7 @@ export default function Projects() {
             width={1280}
             height={720}
             alt={project.title}
-            
+            placeholder="blur"
           />
           <div className="rounded-b-md bg-slate-950">
             <h2 className={`${project.font} text-center text-2xl`}>{project.title}</h2>
