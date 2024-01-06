@@ -37,7 +37,7 @@ export default function Introduction(){
       </h2>
       <div className='flex gap-5'>
       <FontAwesomeIcon icon={faGithub} className="mt-10 text-4xl text-white hover:text-emerald-300 transition-all cursor-pointer" onClick={() => window.open("https://github.com/Anay-208/")}/>
-      <FontAwesomeIcon icon={faEnvelope} className="mt-10 text-4xl text-white hover:text-emerald-300 transition-all cursor-pointer" onClick={() => window.open("mailto:contact@anayparaswani.me")}/>
+      <FontAwesomeIcon icon={faEnvelope} className="mt-10 text-4xl text-white hover:text-emerald-300 transition-all cursor-pointer" onClick={() => window.open("mailto:anayparswani2008@gmail.com")}/>
     </div>
     </div>
 
