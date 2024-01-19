@@ -23,9 +23,9 @@ export default function Projects() {
     }
   ];
   return (
-    <div id="projects" className="relative flex h-fit min-h-screen w-screen flex-col items-start justify-center bg-slate-900 sm:rounded-sm sm:px-5">
+    <div id="projects" className="relative flex h-fit min-h-screen w-screen flex-col items-start justify-center sm:rounded-sm sm:px-5">
       <h1 className="self-center py-10 text-5xl">View my projects</h1>
-      <div className="align-center grid w-full grid-cols-1 gap-6 items-center justify-center bg-slate-900 sm:grid-cols-2">
+      <div className="align-center grid w-full grid-cols-1 gap-6 items-center justify-center  sm:grid-cols-2">
         {" "}
         {/* Projects card(s) */}
         {projects.map((project, index) => (
@@ -38,7 +38,7 @@ export default function Projects() {
             alt={project.title}
             placeholder="blur"
           />
-          <div className="rounded-b-md bg-slate-950">
+          <div className="rounded-b-md bg-slate-900">
             <h2 className={`${project.font} text-center text-2xl`}>{project.title}</h2>
             <p className="text-center mx-4 my-2 h-28 sm:h-20">{project.description} &nbsp;
             <Link className=" text-blue-500 underline" href={project.link + "/about"}>Read More</Link></p>
