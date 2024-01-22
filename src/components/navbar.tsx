@@ -12,6 +12,7 @@ export default function Navbar() {
 
   const [sections, setSections] = useState<Section[]>([
     { name: "introduction", active: true },
+    { name: "skills", active: false },
     { name: "projects", active: false },
   ]);
   const [scrolled, setScrolled] = useState(false);
