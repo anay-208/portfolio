@@ -43,12 +43,12 @@ export default function Skills() {
     <div id="skills" className="min-h-screen bg-slate-900 py-4">
       <h1 className="text-center text-5xl ">Skills</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 text-3xl min-h-screen mt-12 sm:mt-4">
-        <div className="flex justify-evenly items-center flex-col gap-16 h-full">
+        <div className="flex justify-evenly items-center flex-col h-full">
           {skills.slice(0, skills.length / 2).map((skill, index) => (
             <Skill key={index} skill={skill}/>
           ))}
         </div>
-        <div className="flex justify-evenly items-center flex-col gap-16 h-full mt-16 sm:mt-0">
+        <div className="flex justify-evenly items-center flex-col h-full">
           {skills
             .slice(skills.length / 2, skills.length)
             .map((skill, index) => (
