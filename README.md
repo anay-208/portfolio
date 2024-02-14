@@ -1,6 +1,6 @@
-# My Portfolio
+# Portfolio
 
-Welcome to my portfolio! Feel free to use this as a template for your own portfolio.
+Welcome to mmy portfolio repo! Feel free to use this as a template for your own portfolio.
 
 ## Usage
 
@@ -8,7 +8,7 @@ Welcome to my portfolio! Feel free to use this as a template for your own portfo
 
     ```bash
     git clone https://github.com/anay-208/portfolio.git
-    cd your-portfolio
+    cd portfolio
     ```
 
 2. Customize the content with your own information.
