@@ -1,6 +1,6 @@
 # Portfolio
 
-Welcome to mmy portfolio repo! Feel free to use this as a template for your own portfolio.
+Welcome to my portfolio repo! Feel free to use this as a template for your own portfolio.
 
 ## Usage
 
