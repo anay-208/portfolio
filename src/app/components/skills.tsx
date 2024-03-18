@@ -21,8 +21,8 @@ function Skill({skill} : {skill: skillT}){
                 <div className="w-10">
                   <FontAwesomeIcon icon={skill.icon} className="mt-1" />
                 </div>
-                <h2 className="text-emerald-300">{skill.name}: </h2>
-                <p>{skill.level}</p>
+                <h2 className="text-emerald-300">{skill.name} </h2>
+                {/* <p>{skill.level}</p> */}
               </div>
     )
 }
