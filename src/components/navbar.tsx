@@ -1,60 +1,30 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-type Section = {
+interface Section {
   name: string;
-  active: boolean;
-};
+  uri: string;
+}
 
 export default function Navbar() {
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
-  const [sections, setSections] = useState<Section[]>([
-    { name: "introduction", active: true },
-    { name: "skills", active: false },
-    { name: "projects", active: false },
-  ]);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const checkScroll = () => {
-      setScrolled(window.pageYOffset > window.innerHeight / 2);
-    };
-
-    window.addEventListener("scroll", checkScroll);
-
-    return () => {
-      window.removeEventListener("scroll", checkScroll);
-    };
-  }, []);
-
+  
   const observers = useRef<IntersectionObserver[]>([]);
-
-  useEffect(() => {
-    observers.current = sections.map((section, index) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          setSections((sections) =>
-            sections.map((section, i) => ({
-              ...section,
-              active: i === index ? entry.isIntersecting : section.active,
-            })),
-          );
-        },
-        { threshold: 0.5 },
-      );
-
-      const element = document.getElementById(section.name);
-
-      if (element) {
-        observer.observe(element);
-      }
-      return observer;
-    });
-
-    return () => observers.current.forEach((observer) => observer.disconnect());
-  }, [sections]);
+  const sections : Section[] = [
+    {
+      name: "home",
+      uri: "/"
+    },
+    {
+      name: "contact",
+      uri: "/contact"
+    }
+  ]
 
   return (
     <nav className="fixed z-50 w-full font-default tracking-wide">
@@ -118,20 +88,18 @@ export default function Navbar() {
               <div className="flex space-x-4">
                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                 {sections.map((section) => (
-                  <a
+                  <Link
+                    href={section.uri}
                     key={section.name}
-                    href={`#${section.name}`}
-                    className={`rounded-md ${
-                      section.active
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                    } px-3 py-2 text-sm font-medium`}
+                    className="rounded-md hover:bg-gray-800 bg-gray-900 px-3 py-2 text-sm font-medium text-white capitalize"
                     aria-current="page"
                   >
-                    {section.name.charAt(0).toUpperCase() +
-                      section.name.slice(1)}
-                  </a>
+                    {section.name}
+                  </Link>
                 ))}
+                {/* <a
+                  href="#"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 {/* <a
                   href="#"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
