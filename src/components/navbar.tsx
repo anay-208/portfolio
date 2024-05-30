@@ -136,14 +136,14 @@ export default function Navbar() {
       >
         <div className="space-y-1 px-2 pb-3 pt-2 ">
           {sections.map((section) => (
-            <a
-              href={`#${section.name}`}
+            <Link
+              href={`${section.uri}`}
               key={section.name}
               className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
               aria-current="page"
             >
               {section.name.charAt(0).toUpperCase() + section.name.slice(1)}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
