@@ -1,0 +1,153 @@
+
+
+nav {
+    transition: 0.5s;
+    line-height: 1.5;
+    z-index: 0;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        background-color: rgb(33,37,41);
+    }
+    100% {opacity: 0; background-color: transparent;} 
+ } 
+
+
+.fadeOut {
+    animation: fadeOut;
+    animation-duration: 0.5s;
+    opacity: 0;
+}
+
+
+.fixed {
+    position: fixed;
+}
+
+
+.sticky {
+    position: sticky;
+}
+
+.loading {
+    background-color: rgb(33,37,41);
+    left: 50%;
+}
+
+
+
+.navbar {
+    align-items: center;
+  }
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+#introduction h1 {
+    font-size:  50px;
+}
+
+.contactHr {
+    margin-left: 42.5%;
+    margin-top: 0;
+    border-top: 3px solid #0078ff;
+    opacity: 1;
+}
+
+.navbar-transparent {
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.0);
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}
+
+.navbar-text-white a:hover{
+    color: white;
+}
+
+.navbar-text-white a{
+    color: white;
+}
+
+.navbar-text-white .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");      
+}
+
+
+.navbar-text-white .navbar-toggler {
+    border-color: white;
+    
+  } 
+
+
+.navbar-text-black a{
+    color: black;
+}
+
+
+.aboutHr {
+    margin-left: 40%;
+    margin-top: 0;
+    border-top: 3px solid #0078ff;
+    opacity: 1;
+}
+
+
+
+#about {
+    color: #4e4e4e;
+    font-weight: 325;
+    letter-spacing: 1px;
+}
+
+.skillsHr {
+    margin-left: 45%;
+    margin-top: 0;
+    border-top: 3px solid #0078ff;
+    opacity: 1;
+}
+
+.container {
+    border-radius: 25px;
+}
+
+
+.container-padding-bottom {
+    padding-bottom: 2.5%;
+}
+
+.skillName {
+    font-size: large;
+    font-weight: 350;
+}
+
+
+.skill {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#about p {
+    margin-top: 45px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 20px;
+}
+
+#contact p {
+    font-size: 15px;
+}
+
+
+#about *{
+    margin-bottom: 0;
+}
