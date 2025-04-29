@@ -6,6 +6,6 @@ I got the idea of building a new one on june-aug 2024, but procrastinated, and I
 
 
 
-Built around September 2024
+~Built around September 2024~
 
-In this commit, its still a WIP
+I procrastinated again until april 2025, and I'll hopefully start now
