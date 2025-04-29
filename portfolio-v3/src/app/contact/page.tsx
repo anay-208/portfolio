@@ -4,7 +4,7 @@ export default function Page() {
       <h1 className="pt-20 text-4xl font-default text-center">Contact</h1>
         
         <div className="flex flex-col justify-center items-center mt-8">
-            <p className="text-xl">Email: admin@anayparaswani.me </p>
+            <p className="text-xl">Email: me@anayparaswani.dev </p>
             </div>
     </main>
   );
