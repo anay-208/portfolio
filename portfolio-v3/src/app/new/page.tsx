@@ -5,6 +5,17 @@ import { useState, useEffect, useRef } from 'react';
 export default function Page() {
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const preloadRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Start preloading the video immediately
+    if (preloadRef.current) {
+      preloadRef.current.load();
+    }
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -28,6 +39,18 @@ export default function Page() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
+      {/* Hidden preloader video */}
+      <video
+        ref={preloadRef}
+        muted
+        autoPlay
+        loop
+        className="hidden"
+        preload="auto"
+      >
+        <source src="/rick_roll.mp4" type="video/mp4" />
+      </video>
+
       {/* Aurora Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-pink-500/30 to-blue-500/30 animate-gradient-x" />
