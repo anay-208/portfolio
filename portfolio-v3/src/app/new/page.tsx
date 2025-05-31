@@ -7,17 +7,13 @@ export default function Page() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Preload the video as soon as the component mounts
     if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.volume = 0.6; // Set default volume to 60%
+      videoRef.current.volume = 0.6;
     }
   }, []);
 
-  // Add effect to handle autoplay when video is shown
   useEffect(() => {
     if (showVideo && videoRef.current) {
-      videoRef.current.volume = 0.6; // Ensure volume is set when video is shown
       videoRef.current.play().catch(error => {
         console.log("Autoplay failed:", error);
       });
@@ -64,9 +60,8 @@ export default function Page() {
               controls
               preload="auto"
               autoPlay
-            //   muted // Adding muted to ensure autoplay works in most browsers
             >
-              <source src="https://archive.org/serve/rick-roll/Rick%20Roll.ia.mp4" type="video/mp4" />
+              <source src="/rick_roll.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
