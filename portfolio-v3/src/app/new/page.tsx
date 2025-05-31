@@ -66,7 +66,7 @@ export default function Page() {
               autoPlay
             //   muted // Adding muted to ensure autoplay works in most browsers
             >
-              <source src="/rick_roll.mp4" type="video/mp4" />
+              <source src="https://archive.org/serve/rick-roll/Rick%20Roll.ia.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
