@@ -30,7 +30,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section className="flex flex-col items-center w-full py-10">
+    <section className="flex flex-col items-center w-full p-10">
       <h2 className="text-2xl font-bold mb-6 text-neutral-100">Projects</h2>
       <div className="flex flex-col gap-8 w-full">
         {projects.map((project) => (
