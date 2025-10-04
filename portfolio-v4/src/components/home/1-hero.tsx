@@ -27,7 +27,7 @@ function GlassBackground() {
       {/* Glass morphism layer */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-800/30 via-neutral-900/50 to-black/60 backdrop-blur-lg" />
 
-            {/* Animated square particles */}
+      {/* Animated square particles */}
       {squares.map((square) => (
         <motion.div
           key={square.id}
@@ -61,7 +61,7 @@ function GlassBackground() {
         className="absolute w-32 h-32 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-xl opacity-60"
         style={{ left: '20%', top: '30%' }}
       />
-      
+
       <div
         className="absolute w-24 h-24 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-xl opacity-50"
         style={{ right: '25%', bottom: '40%' }}
@@ -228,7 +228,7 @@ export default function Hero() {
   return (
     <div className="flex flex-col items-center text-center py-10 px-6 gap-4">
       {/* Main Hero Section */}
-      <div className="relative p-8 rounded-2xl overflow-hidden border-2 border-neutral-800 ">
+      <div className="relative p-8 rounded-2xl overflow-hidden border-2 border-neutral-800 w-full max-w-2xl">
         <GlassBackground />
         <div className="relative z-10">
           <p className="text-neutral-300 text-lg mb-2">Hi, I am</p>
@@ -242,7 +242,7 @@ export default function Hero() {
       </div>
 
       {/* Skills and Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl ">
         {/* Skills Section */}
         <div className="text-left bg-neutral-900 p-8 rounded-2xl border-2 border-neutral-800">
           <h2 className="text-2xl font-light text-neutral-200 mb-6">Skills</h2>
@@ -261,6 +261,22 @@ export default function Hero() {
         <div className="text-left bg-neutral-900 p-8 rounded-2xl border-2 border-neutral-800">
           <h2 className="text-2xl font-light text-neutral-200 mb-6">Projects</h2>
           <ProjectSlider />
+        </div>
+      </div>
+
+      {/* About Me Section */}
+      <div className="relative p-8 rounded-2xl overflow-hidden border-2 border-neutral-800 w-full max-w-2xl bg-neutral-900">
+        <div className="relative z-10 text-left">
+          <h2 className="text-2xl font-light text-neutral-200 mb-6">About Me</h2>
+          <p className="text-neutral-300 text-base leading-relaxed mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p className="text-neutral-300 text-base leading-relaxed mb-4">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p className="text-neutral-300 text-base leading-relaxed">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </p>
         </div>
       </div>
     </div>
