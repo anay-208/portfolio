@@ -1,9 +1,19 @@
 "use client";
 import { Github, Mail } from "lucide-react";
-import { siTailwindcss, siNextdotjs, siReact, siTypescript, siNodedotjs, siPostgresql, siGit } from "simple-icons";
+import { siTailwindcss, siNextdotjs, siReact, siTypescript, siNodedotjs, siPostgresql, siGit, siUbuntu, siNginx, siPython } from "simple-icons";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
+// TODO
+/// EXTEND GRADIENT
+/// ON SKILLS BADGES, do some stuff to highlight one more like by reducing contrast of others and highlighting that more
+
+
+// Create motion-wrapped Image component
+const MotionImage = motion.create(Image);
+import Lifelog from "@/../public/projects/lifelog.png"
+import Learningo from "@/../public/projects/learningo.png"
 function GlassBackground() {
   // Fixed positions for square particles to avoid hydration issues
   const squares = [
@@ -70,14 +80,40 @@ function GlassBackground() {
   );
 }
 
-function TechBadge({ icon, name }: { icon: any; name: string }) {
+function TechBadge({ icon, name, url, size = "sm" }: { icon: any; name: string; url?: string; size?: "sm" | "lg" }) {
+  const handleClick = () => {
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  // Size variants
+  const sizeClasses = {
+    sm: "gap-1.5 px-1.5 py-0.5 rounded-md text-xs",
+    lg: "gap-2 px-3 py-2 rounded-lg text-sm"
+  };
+
+  const iconSizes = {
+    sm: { width: "12", height: "12" },
+    lg: { width: "16", height: "16" }
+  };
+
   return (
     <span
-      className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium bg-neutral-800 text-neutral-200 border border-neutral-600"
+      className={`inline-flex items-center ${sizeClasses[size]} font-medium bg-neutral-800 text-neutral-200 border border-neutral-600 transition-all duration-200 hover:bg-neutral-700 hover:border-neutral-500 hover:scale-105 ${url ? 'cursor-pointer hover:shadow-sm' : ''}`}
+      onClick={handleClick}
+      role={url ? "button" : undefined}
+      tabIndex={url ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (url && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          handleClick();
+        }
+      }}
     >
       <svg
-        width="16"
-        height="16"
+        width={iconSizes[size].width}
+        height={iconSizes[size].height}
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden="true"
@@ -93,28 +129,20 @@ function TechBadge({ icon, name }: { icon: any; name: string }) {
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    subtitle: "Full-stack Next.js application",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80"
+    title: "",
+    subtitle: "",
+    image: Lifelog,
+    color: "#1e40af",
+    url: "https://nextjs-hackathon-murex.vercel.app/"
   },
   {
     id: 2,
-    title: "Task Management App",
-    subtitle: "React & TypeScript dashboard",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80"
+    title: "Learningo",
+    subtitle: "Revise anything you want with AI",
+    image: Learningo,
+    color: "#ffffff", // green
+    url: "https://learningo.xyz"
   },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    subtitle: "Real-time data visualization",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80"
-  },
-  {
-    id: 4,
-    title: "Social Media App",
-    subtitle: "Full-stack with PostgreSQL",
-    image: "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80"
-  }
 ];
 
 function ProjectSlider() {
@@ -183,15 +211,26 @@ function ProjectSlider() {
           }}
           className="absolute inset-0"
         >
-          <motion.img
-            src={projects[currentIndex].image}
-            alt={projects[currentIndex].title}
-            className="w-full h-full object-cover rounded-lg "
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg" />
+          <motion.a
+            href={projects[currentIndex].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full h-full cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <MotionImage
+              src={projects[currentIndex].image}
+              alt={projects[currentIndex].title}
+              fill
+              placeholder="blur"
+              className="object-contain rounded-lg"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg" />
+          </motion.a>
 
           <motion.div
             variants={textVariants}
@@ -201,22 +240,33 @@ function ProjectSlider() {
             transition={{ delay: 0.2, duration: 0.4 }}
             className="absolute bottom-4 left-4 right-4"
           >
-            <motion.h3
-              className="text-white font-semibold text-lg mb-1"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
+            <motion.a
+              href={projects[currentIndex].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block cursor-pointer group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             >
-              {projects[currentIndex].title}
-            </motion.h3>
-            <motion.p
-              className="text-neutral-300 text-sm"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-            >
-              {projects[currentIndex].subtitle}
-            </motion.p>
+              <motion.h3
+                className="font-semibold text-lg mb-1 group-hover:underline"
+                style={{ color: projects[currentIndex].color }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.4 }}
+              >
+                {projects[currentIndex].title}
+              </motion.h3>
+              <motion.p
+                className="text-sm"
+                style={{ color: projects[currentIndex].color, opacity: 0.8 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+              >
+                {projects[currentIndex].subtitle}
+              </motion.p>
+            </motion.a>
           </motion.div>
         </motion.div>
       </AnimatePresence>
@@ -232,7 +282,7 @@ export default function Hero() {
         <GlassBackground />
         <div className="relative z-10">
           <p className="text-neutral-300 text-lg mb-2">Hi, I am</p>
-          <h1 className="text-5xl md:text-6xl text-neutral-50 mb-6 tracking-wide font-raleway-dots">
+          <h1 className="text-5xl md:text-6xl text-neutral-50 mb-6 tracking-wide">
             Anay Paraswani
           </h1>
           <p className="text-neutral-300 text-lg">
@@ -247,13 +297,16 @@ export default function Hero() {
         <div className="text-left bg-neutral-900 p-8 rounded-2xl border-2 border-neutral-800">
           <h2 className="text-2xl font-light text-neutral-200 mb-6">Skills</h2>
           <div className="flex flex-wrap gap-3">
-            <TechBadge icon={siReact} name="React" />
-            <TechBadge icon={siNextdotjs} name="Next.js" />
-            <TechBadge icon={siTypescript} name="TypeScript" />
-            <TechBadge icon={siTailwindcss} name="Tailwind" />
-            <TechBadge icon={siNodedotjs} name="Node.js" />
-            <TechBadge icon={siPostgresql} name="PostgreSQL" />
-            <TechBadge icon={siGit} name="Git" />
+            <TechBadge icon={siReact} name="React" url="https://react.dev" size="lg" />
+            <TechBadge icon={siNextdotjs} name="Next.js" url="https://nextjs.org" size="lg" />
+            <TechBadge icon={siTypescript} name="TypeScript" url="https://www.typescriptlang.org" size="lg" />
+            <TechBadge icon={siTailwindcss} name="Tailwind" url="https://tailwindcss.com" size="lg" />
+            <TechBadge icon={siNodedotjs} name="Node.js" url="https://nodejs.org" size="lg" />
+            <TechBadge icon={siPython} name="Python" url="https://www.python.org" size="lg" />
+            <TechBadge icon={siPostgresql} name="PostgreSQL" url="https://www.postgresql.org" size="lg" />
+            <TechBadge icon={siUbuntu} name="Ubuntu" url="https://ubuntu.com" size="lg" />
+            <TechBadge icon={siNginx} name="Nginx" url="https://nginx.org" size="lg" />
+            <TechBadge icon={siGit} name="Git" url="https://git-scm.com" size="lg" />
           </div>
         </div>
 
@@ -265,18 +318,27 @@ export default function Hero() {
       </div>
 
       {/* About Me Section */}
-      <div className="relative p-8 rounded-2xl overflow-hidden border-2 border-neutral-800 w-full max-w-2xl bg-neutral-900">
-        <div className="relative z-10 text-left">
-          <h2 className="text-2xl font-light text-neutral-200 mb-6">About Me</h2>
-          <p className="text-neutral-300 text-base leading-relaxed mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <p className="text-neutral-300 text-base leading-relaxed mb-4">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p className="text-neutral-300 text-base leading-relaxed">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-          </p>
+      <div className="w-full max-w-2xl">
+        {/* About Me Card */}
+        <div className="relative p-8 rounded-2xl overflow-hidden border-2 border-neutral-800 bg-neutral-900">
+          <div className="relative z-10 text-left">
+            <h2 className="text-2xl font-light text-neutral-200 mb-6">About Me</h2>
+            <p className="text-neutral-300 text-sm leading-relaxed mb-4">
+              I am a full-stack web developer and a student, passionate about creating functional and visually appealing websites. I specialize in 
+              <TechBadge icon={siReact} name="React" url="https://react.dev" />, 
+              <TechBadge icon={siNextdotjs} name="Next.js" url="https://nextjs.org" />, and 
+              <TechBadge icon={siTypescript} name="TypeScript" url="https://www.typescriptlang.org" />, focusing on building websites that are intuitive and user-friendly.
+            </p>
+            <p className="text-neutral-300 text-sm leading-relaxed mb-4">
+              I am also deeply interested in AI, technology, and entrepreneurship. I have worked on projects ranging from interactive websites to AI-powered web tools, each helping me strengthen my technical and problem-solving skills.
+            </p>
+            <p className="text-neutral-300 text-sm leading-relaxed">
+              I usually build websites with 
+              <TechBadge icon={siNextdotjs} name="Next.js" url="https://nextjs.org" />, 
+              <TechBadge icon={siTailwindcss} name="TailwindCSS" url="https://tailwindcss.com" />, and 
+              <TechBadge icon={siPostgresql} name="PostgreSQL" url="https://www.postgresql.org" />, seeking opportunities to collaborate on meaningful projects and contribute to innovative web solutions.
+            </p>
+          </div>
         </div>
       </div>
     </div>
