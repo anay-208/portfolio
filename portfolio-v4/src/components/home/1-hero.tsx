@@ -276,12 +276,12 @@ function ProjectSlider() {
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center text-center py-10 px-6 gap-4">
+    <div className="flex flex-col items-center text-center py-10 px-6 gap-6">
       {/* Main Hero Section */}
       <div className="relative p-8 rounded-2xl overflow-hidden border-2 border-neutral-800 w-full max-w-2xl">
         <GlassBackground />
         <div className="relative z-10">
-          <p className="text-neutral-300 text-lg mb-2">Hi, I am</p>
+          {/* <p className="text-neutral-300 text-lg mb-2">Hi, I am</p> */}
           <h1 className="text-5xl md:text-6xl text-neutral-50 mb-6 tracking-wide">
             Anay Paraswani
           </h1>
@@ -292,7 +292,7 @@ export default function Hero() {
       </div>
 
       {/* Skills and Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl ">
         {/* Skills Section */}
         <div className="text-left bg-neutral-900 p-8 rounded-2xl border-2 border-neutral-800">
           <h2 className="text-2xl font-light text-neutral-200 mb-6">Skills</h2>
