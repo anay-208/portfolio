@@ -17,11 +17,12 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         return (
             <motion.div
                 ref={ref}
-                className="flex flex-col p-16 gap-2"
+                className="flex flex-col gap-2"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                exit={{ opacity: 0, x: -50 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
             >
                 <div>
                     <Image
