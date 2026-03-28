@@ -11,7 +11,7 @@ export default async function BlogsLayout({
 
     return (
         <>
-            <div className="max-w-2xl mx-auto my-4 flex flex-col gap-6 min-h-screen">
+            <div className="max-w-2xl mx-auto flex flex-col gap-6 min-h-screen">
                 <Header posts={posts}/>
                 <main className="flex flex-col gap-16">
                     <section className=" text-white/75 font-inter">
