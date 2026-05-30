@@ -1,0 +1,76 @@
+Prefetching(something which most users might not care about much) makes navigating between different routes in your website feel (almost) instant. Prefetching is a strategy where pages are preloaded in the background to reduce load times. For instance, when you click the link for this blog post, before you even noticed - the link was prefetched based on your cursor movements. 
+
+In Next.js by default, the link is "partially preloaded" as soon as it enters the viewport. However, this could result in overwhelming prefetching requests, and that is where ForesightJS comes to the rescue.
+By using simple physics(mouse direction and speed), it predicts your intent and preloads the page - so when you click the link, the action feels almost instant.
+
+This website is also using ForesightJS to predict and fully preload the page so everything feels instant. To implement it, I created a custom component for Link(given on ForeSightJS website and modified it a bit) and used it in my project.
+```tsx  
+"use client"
+import type { LinkProps } from "next/link"
+import Link from "next/link"
+import { type ForesightRegisterOptions } from "js.foresight"
+import { useRef, useEffect, useState } from "react"
+import {
+  ForesightManager,
+  type ForesightRegisterOptionsWithoutElement,
+  type ForesightRegisterResult,
+} from "js.foresight"
+
+function useForesight<T extends HTMLElement = HTMLElement>(
+  options: ForesightRegisterOptionsWithoutElement
+) {
+  const elementRef = useRef<T>(null)
+  const registerResults = useRef<ForesightRegisterResult | null>(null)
+  useEffect(() => {
+    if (!elementRef.current) return
+
+    registerResults.current = ForesightManager.instance.register({
+      element: elementRef.current,
+      ...options,
+    })
+  }, [options])
+
+  return { elementRef, registerResults }
+}
+
+
+
+interface ForesightLinkProps
+  extends Omit<LinkProps, "prefetch">, Omit<ForesightRegisterOptions, "element" | "callback"> {
+  children: React.ReactNode
+  className?: string
+}
+
+
+export default function ForesightLink({ children, className, ...props }: ForesightLinkProps) {
+  const [active, setActive] = useState(false);
+  const { elementRef } = useForesight<HTMLAnchorElement>({
+    callback: () => {
+      // console.log("prefetching", props.href.toString());
+      // Here, instead of router.prefetch, we used state, as router.prefetch has the same behaviour
+      // as prefetch={auto}. I want the pages to load almost immediately
+      setActive(true);
+    },
+    hitSlop: props.hitSlop,
+    name: props.name,
+    meta: props.meta,
+    reactivateAfter: props.reactivateAfter,
+  })
+
+  return (
+    <Link {...props} ref={elementRef} className={className} prefetch={active ? true : false}>
+      {children}
+    </Link>
+  )
+}
+```
+<p className="mt-1 text-xs text-white/40">Copied and modified from [ForesightJS documentation](https://foresightjs.com/docs/nextjs)</p>
+
+So here, I've used `prefetch={true}`, so it prefetches the page fully rather than partial prefetching. My pages are anyways really light so full prefetching works perfectly fine for me - instant load. 
+
+## Does your website really need ForesightJS prefetching
+
+So what I later realized while adding prefetching to my website was "Do I really need prefetching", I realized I didn't, my content was just text, and I know I have no blogs right now(but since I already added it, why remove it?)
+
+So to answer the question, use ForesightJS prefetching **only** when there are a lot of network requests caused due to prefetching, so the difference would be substantial. I did realizing in my case that it would only be a difference of around 6-7 KB, which is almost negligible. If without ForesightJS, if more than 1 MB data is being transferred just by scrolling in the page, I'd say that is the sign to use ForesightJS. For instance, [NextFaster](https://next-faster.vercel.app/) is using prefetching to fetch all the products which are just there in the user's screen, which I'd say is inefficient. This is primarily because in production application, the data prefetched will result in a data transfer charge, and it could quickly add up if the scale of prefetching is similar as that of NextFaster. 
+

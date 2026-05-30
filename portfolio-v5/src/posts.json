@@ -1,9 +1,9 @@
 {
   "posts": [
     {
-      "id": "test",
-      "date": "Oct 17, 2025",
-      "title": "How I made my portfolio website really fast."
+      "id": "prefetching",
+      "date": "May 30, 2026",
+      "title": "Prefetching in Next.js"
     }
   ]
 }

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import Link from "@/lib/link";
 import { getPosts } from "@/lib/features/blogs/get-posts";
 // import Hero from "@/components/home/1-hero";
@@ -33,9 +33,9 @@ export default async function Home() {
           <section>
             <h2 className="font-cal-sans text-2xl">Blogs</h2>
             <ul className="flex flex-col mt-4 gap-4">
-              <li className="text-neutral-400">No blogs yet.</li>
+              {/* <li className="text-neutral-400">No blogs yet.</li> */}
               
-              {/* {posts.map((post) => (
+              {posts.map((post) => (
                 <li key={post.id} className="group">
                   <Link href={`/blogs/${post.id}`} className="flex items-center justify-between px-4 py-2 bg-neutral-800 rounded-lg">
                     <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ export default async function Home() {
                     </span>
                   </Link>
                 </li>
-              ))} */}
+              ))}
             </ul>
           </section>
           </main>
