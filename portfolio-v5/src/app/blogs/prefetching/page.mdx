@@ -1,7 +1,7 @@
-Prefetching(something which most users might not care about much) makes navigating between different routes in your website feel (almost) instant. Prefetching is a strategy where pages are preloaded in the background to reduce load times. For instance, when you click the link for this blog post, before you even noticed - the link was prefetched based on your cursor movements. 
+Prefetching makes navigating between different routes in your website feel (almost) instant. Prefetching is a strategy where pages are preloaded in the background to reduce load times. For instance, when you click the link for this blog post, before you even notice, the link has already been prefetched based on your cursor movements.
+In Next.js by default, the link is "partially preloaded" as soon as it enters the viewport. However, this could result in overwhelming prefetching requests, for instance, on a page with 50 links, thats 50 requests for prefetching fired just from scrolling. This is where ForesightJS comes to the rescue. 
 
-In Next.js by default, the link is "partially preloaded" as soon as it enters the viewport. However, this could result in overwhelming prefetching requests, and that is where ForesightJS comes to the rescue.
-By using simple physics(mouse direction and speed), it predicts your intent and preloads the page - so when you click the link, the action feels almost instant.
+By using simple physics (mouse direction and speed), it predicts whether you're likely to click a link and preloads the page - so when you click, the action feels almost instant.
 
 This website is also using ForesightJS to predict and fully preload the page so everything feels instant. To implement it, I created a custom component for Link(given on ForeSightJS website and modified it a bit) and used it in my project.
 ```tsx  
@@ -68,9 +68,11 @@ export default function ForesightLink({ children, className, ...props }: Foresig
 
 So here, I've used `prefetch={true}`, so it prefetches the page fully rather than partial prefetching. My pages are anyways really light so full prefetching works perfectly fine for me - instant load. 
 
+But before you reach for any of this, it's worth pausing to ask whether you actually need it.
+
 ## Does your website really need ForesightJS prefetching
 
-So what I later realized while adding prefetching to my website was "Do I really need prefetching", I realized I didn't, my content was just text, and I know I have no blogs right now(but since I already added it, why remove it?)
+While adding prefetching to my website, I found myself asking: "Do I really need this?" I didn't — my content was just text, and I have no blog posts right now (but since I already added it, why remove it?)
 
-So to answer the question, use ForesightJS prefetching **only** when there are a lot of network requests caused due to prefetching, so the difference would be substantial. I did realizing in my case that it would only be a difference of around 6-7 KB, which is almost negligible. If without ForesightJS, if more than 1 MB data is being transferred just by scrolling in the page, I'd say that is the sign to use ForesightJS. For instance, [NextFaster](https://next-faster.vercel.app/) is using prefetching to fetch all the products which are just there in the user's screen, which I'd say is inefficient. This is primarily because in production application, the data prefetched will result in a data transfer charge, and it could quickly add up if the scale of prefetching is similar as that of NextFaster. 
+So to answer the question, use ForesightJS prefetching **only** when there are a lot of network requests caused due to prefetching, so the difference would be substantial. I realized in my case that it would only be a difference of around 6-7 KB, which is almost negligible. If without ForesightJS, if more than 1 MB data is being transferred just by scrolling in the page, I'd say that is the sign to use ForesightJS. For instance, [NextFaster](https://next-faster.vercel.app/), it is a great project, but is aggressively prefetching to fetch all the products visible in the user's viewport, which might not be suitable for production apps. This is primarily because in production application, the data prefetched will result in a data transfer charge, and it could quickly add up if the scale of prefetching is similar as that of NextFaster. 
 
