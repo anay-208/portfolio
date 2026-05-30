@@ -1,5 +1,6 @@
+
 Prefetching makes navigating between different routes in your website feel (almost) instant. Prefetching is a strategy where pages are preloaded in the background to reduce load times. For instance, when you click the link for this blog post, before you even notice, the link has already been prefetched based on your cursor movements.
-In Next.js by default, the link is "partially preloaded" as soon as it enters the viewport. However, this could result in overwhelming prefetching requests, for instance, on a page with 50 links, thats 50 requests for prefetching fired just from scrolling. This is where ForesightJS comes to the rescue. 
+In Next.js by default, the link is [Partially Preloaded](https://nextjs.org/docs/app/api-reference/components/link#prefetch) as soon as it enters the viewport. However, this could result in overwhelming prefetching requests, for instance, on a page with 50 links, thats 50 requests for prefetching fired just from scrolling. This is where ForesightJS comes to the rescue. 
 
 By using simple physics (mouse direction and speed), it predicts whether you're likely to click a link and preloads the page - so when you click, the action feels almost instant.
 
@@ -64,7 +65,7 @@ export default function ForesightLink({ children, className, ...props }: Foresig
   )
 }
 ```
-<p className="mt-1 text-xs text-white/40">Copied and modified from [ForesightJS documentation](https://foresightjs.com/docs/nextjs)</p>
+<p className="mt-1 text-xs text-white/40">Code copied and modified from [ForesightJS documentation](https://foresightjs.com/docs/nextjs)</p>
 
 So here, I've used `prefetch={true}`, so it prefetches the page fully rather than partial prefetching. My pages are anyways really light so full prefetching works perfectly fine for me - instant load. 
 
