@@ -12,8 +12,8 @@ export default async function Home() {
   const socialLinkClass = "relative inline-block transition-colors hover:text-neutral-200 after:absolute after:left-0 after:-bottom-0 after:h-px after:w-full after:bg-current after:opacity-70 after:transition-opacity hover:after:opacity-100";
   return (
     <>
-        <div className="max-w-2xl mx-auto flex flex-col gap-6 min-h-screen">
-          <header className="flex flex-col gap-1 pt-32">
+        <div className="max-w-2xl mx-auto flex flex-col gap-6 min-h-screen px-4">
+          <header className="flex flex-col gap-1 pt-16 md:pt-32">
             <h1 className="font-cal-sans text-4xl">Anay Paraswani</h1>
             <div className="flex gap-3 text-neutral-400">
               <a href="https://github.com/anay-208" target="_blank" rel="noreferrer" className={socialLinkClass}>Github</a>

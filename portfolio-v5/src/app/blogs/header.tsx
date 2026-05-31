@@ -28,7 +28,7 @@ export default function Header({posts}: {posts: Post[]}) {
 
     return (
         <>
-            <header className="flex flex-col gap-1 pt-32">
+            <header className="flex flex-col gap-1 pt-16 md:pt-32">
                 <h1 className="font-cal-sans text-4xl">{post.title}</h1>
                 <div className="flex justify-between  text-neutral-400">
                     <span>By Anay Paraswani on {post.date}</span>
